@@ -1,0 +1,480 @@
+/* ---------------------------------------------------------------
+   Gestão Hospitalar — Portal Oficial / Prontuário Digital
+   Design System Corporativo / Hospitalar (Azul Institucional + Branco Clínico)
+   --------------------------------------------------------------- */
+
+:root {
+  --cor-primaria: #0056b3;       /* Azul institucional corporativo e confiável */
+  --cor-primaria-escura: #003d82;/* Azul marinho profundo para menus */
+  --cor-tinta: #1e293b;          /* Texto principal escuro e legível */
+  --cor-texto-suave: #64748b;    /* Cinza técnico para legendas */
+  --cor-fundo: #f8fafc;          /* Fundo cinza-claro hospitalar (muito limpo) */
+  --cor-cartao: #ffffff;         /* Branco absoluto para fichas e cartões */
+  --cor-borda: #e2e8f0;          /* Bordas sutis e limpas */
+  --cor-ambar: #d97706;          /* Alertas / Avisos */
+  --cor-perigo: #dc2626;         /* Erros / Cancelamentos */
+  --cor-sucesso: #059669;        /* Sucesso / Realizado */
+  --cor-destaque: #0ea5e9;       /* Azul claro tecnológico */
+
+  --fonte-display: "Inter", "Segoe UI", sans-serif;
+  --fonte-corpo: "Inter", "Segoe UI", sans-serif;
+  --fonte-mono: "JetBrains Mono", "IBM Plex Mono", monospace;
+
+  --raio: 8px;
+  --sombra: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--cor-fundo);
+  color: var(--cor-tinta);
+  font-family: var(--fonte-corpo);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--fonte-display);
+  margin: 0;
+  letter-spacing: -0.02em;
+  color: #0f172a;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+:focus-visible {
+  outline: 2px solid var(--cor-primaria);
+  outline-offset: 2px;
+}
+
+/* ---------- Layout Geral / Portal Hospitalar ---------- */
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 270px;
+  flex-shrink: 0;
+  background: var(--cor-primaria-escura);
+  color: #ffffff;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar__marca {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.sidebar__cruz {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: var(--cor-destaque);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-family: var(--fonte-display);
+  font-weight: 700;
+  font-size: 1.3rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.sidebar__titulo {
+  margin: 0;
+  font-family: var(--fonte-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  line-height: 1.2;
+  color: #ffffff;
+}
+
+.sidebar__subtitulo {
+  margin: 3px 0 0;
+  font-size: 0.75rem;
+  color: #93c5fd;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.sidebar__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sidebar__link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: var(--raio);
+  color: #cbd5e1;
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.sidebar__link:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.sidebar__link--ativo {
+  background: var(--cor-primaria);
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.sidebar__indice {
+  font-family: var(--fonte-mono);
+  font-size: 0.72rem;
+  color: #93c5fd;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.sidebar__rodape {
+  margin-top: auto;
+  font-family: var(--fonte-mono);
+  font-size: 0.7rem;
+  color: #64748b;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 16px;
+}
+
+.conteudo {
+  flex: 1;
+  padding: 40px 56px;
+  max-width: 1200px;
+  overflow-y: auto;
+}
+
+/* ---------- Páginas e Cabeçalhos ---------- */
+
+.pagina {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.pagina__cabecalho {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--cor-borda);
+  padding-bottom: 20px;
+}
+
+.pagina__eyebrow {
+  font-family: var(--fonte-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cor-primaria);
+  margin: 0 0 6px;
+}
+
+.pagina h1 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.pagina__descricao {
+  margin: 6px 0 0;
+  color: var(--cor-texto-suave);
+  font-size: 0.95rem;
+}
+
+/* ---------- Grid de Resumo / Painel ---------- */
+
+.grade-cartoes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.cartao-resumo {
+  background: var(--cor-cartao);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: 24px;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: var(--sombra);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.cartao-resumo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--cor-primaria);
+}
+
+.cartao-resumo:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+  border-color: #cbd5e1;
+}
+
+.cartao-resumo__indice {
+  font-family: var(--fonte-mono);
+  font-size: 0.72rem;
+  color: var(--cor-texto-suave);
+}
+
+.cartao-resumo__numero {
+  font-family: var(--fonte-display);
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--cor-primaria);
+}
+
+.cartao-resumo__rotulo {
+  color: var(--cor-tinta);
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+/* ---------- Cartões e Formulários Profissionais ---------- */
+
+.cartao {
+  background: var(--cor-cartao);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: 28px;
+  box-shadow: var(--sombra);
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.formulario label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--cor-tinta);
+}
+
+.formulario input,
+.formulario select,
+.formulario textarea {
+  padding: 11px 14px;
+  border-radius: var(--raio);
+  border: 1px solid var(--cor-borda);
+  background: #ffffff;
+  color: var(--cor-tinta);
+  font-weight: 400;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.formulario input:focus,
+.formulario select:focus,
+.formulario textarea:focus {
+  border-color: var(--cor-primaria);
+  box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.15);
+  background: #fff;
+}
+
+/* ---------- Botões ---------- */
+
+.botao {
+  align-self: flex-start;
+  padding: 11px 20px;
+  border-radius: var(--raio);
+  border: none;
+  background: var(--cor-primaria);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.botao:hover:not(:disabled) {
+  background: var(--cor-primaria-escura);
+}
+
+.botao:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.botao:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.botao--fantasma {
+  background: transparent;
+  color: var(--cor-primaria);
+  border: 1px solid var(--cor-borda);
+}
+
+.botao--fantasma:hover:not(:disabled) {
+  background: #f1f5f9;
+  border-color: var(--cor-primaria);
+}
+
+.botao--perigo {
+  background: transparent;
+  color: var(--cor-perigo);
+  border: 1px solid #fecaca;
+}
+
+.botao--perigo:hover {
+  background: #fef2f2;
+}
+
+/* ---------- Fichas e Prontuários ---------- */
+
+.ficha__lista {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  row-gap: 12px;
+  column-gap: 16px;
+  margin: 0;
+}
+
+.ficha__lista dt {
+  font-size: 0.8rem;
+  color: var(--cor-texto-suave);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.ficha__lista dd {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.mono {
+  font-family: var(--fonte-mono);
+  color: var(--cor-primaria-escura);
+}
+
+/* ---------- Selos de Status Clínico ---------- */
+
+.selo {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: #f1f5f9;
+  color: var(--cor-texto-suave);
+}
+
+.selo--agendada {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.selo--confirmada {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.selo--realizada {
+  background: #d1fae5;
+  color: #047857;
+}
+
+.selo--cancelada {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+/* ---------- Navegação de Registros ---------- */
+
+.navegacao {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--cor-borda);
+  padding-top: 16px;
+  margin-top: 8px;
+}
+
+.navegacao__botoes {
+  display: flex;
+  gap: 8px;
+}
+
+.navegacao__botao {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--raio);
+  border: 1px solid var(--cor-borda);
+  background: #fff;
+  color: var(--cor-primaria);
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.navegacao__botao:hover:not(:disabled) {
+  border-color: var(--cor-primaria);
+  background: #f0fdf4;
+  color: var(--cor-primaria-escura);
+}
+
+.navegacao__botao:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.navegacao__tab {
+  font-family: var(--fonte-mono);
+  font-size: 0.8rem;
+  color: var(--cor-texto-suave);
+  background: #f8fafc;
+  border: 1px solid var(--cor-borda);
+  border-radius: 999px;
+  padding: 6px 14px;
+}
