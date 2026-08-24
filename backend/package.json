@@ -14,8 +14,4 @@
     "express": "^4.22.2",
     "sqlite3": "^6.0.1"
   }
-  "scripts": {
-  "start": "node server.js",
-  "test": "echo \"Error: no test specified\" && exit 1"
-}
 }
