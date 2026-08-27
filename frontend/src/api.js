@@ -1,7 +1,9 @@
 // api.js
-// Cliente HTTP simples para conversar com a API Express (http://localhost:3001).
+// Cliente HTTP para conversar com a API Express (local ou no Render)
 
-const BASE_URL = "http://localhost:3001/api";
+const BASE_URL = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+  ? "http://localhost:3000/api" 
+  : "https://gestao-hospitalar-1.onrender.com/api";
 
 async function requisicao(caminho, opcoes = {}) {
   const resposta = await fetch(`${BASE_URL}${caminho}`, {
