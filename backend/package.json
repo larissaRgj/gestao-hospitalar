@@ -6,12 +6,15 @@
   "type": "commonjs",
   "scripts": {
     "start": "node server.js",
-    "dev": "node --watch server.js"
+    "dev": "node --watch server.js",
+    "build": "npm install"
   },
   "dependencies": {
     "better-sqlite3": "^11.3.0",
     "cors": "^2.8.6",
-    "express": "^4.22.2",
-    "sqlite3": "^6.0.1"
+    "express": "^4.22.2"
+  },
+  "engines": {
+    "node": "20.x"
   }
 }
