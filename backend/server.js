@@ -10,7 +10,7 @@ const medicosRouter = require("./routes/medicos");
 const consultasRouter = require("./routes/consultas");
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 10000;
 
 app.use(cors());
 app.use(express.json());
@@ -35,5 +35,5 @@ app.use("/api/medicos", medicosRouter);
 app.use("/api/consultas", consultasRouter);
 
 app.listen(PORT, () => {
-  console.log(`API Gestão Hospitalar rodando em http://localhost:${PORT}`);
+  console.log(`API Gestão Hospitalar rodando na porta ${PORT}`);
 });
