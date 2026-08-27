@@ -10,9 +10,9 @@
     "build": "npm install"
   },
   "dependencies": {
-    "better-sqlite3": "^11.3.0",
     "cors": "^2.8.6",
-    "express": "^4.22.2"
+    "express": "^4.22.2",
+    "sqlite3": "5.1.7"
   },
   "engines": {
     "node": "20.x"
