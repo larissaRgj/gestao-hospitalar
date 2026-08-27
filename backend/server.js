@@ -5,6 +5,15 @@ const express = require("express");
 const cors = require("cors");
 
 const { criarTabelas } = require("./db");
+
+// Garante a criação das tabelas assim que o servidor é iniciado
+try {
+  criarTabelas();
+  console.log("Tabelas do banco de dados verificadas/criadas com sucesso.");
+} catch (erro) {
+  console.error("Erro ao criar tabelas do banco:", erro);
+}
+
 const pacientesRouter = require("./routes/pacientes");
 const medicosRouter = require("./routes/medicos");
 const consultasRouter = require("./routes/consultas");
